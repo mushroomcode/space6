@@ -6,4 +6,8 @@ public class SnakeParam extends Node {
         super(x, y, prev);
     }
 
+    @Override
+    public boolean isSnake() {
+        return true;
+    }
 }
