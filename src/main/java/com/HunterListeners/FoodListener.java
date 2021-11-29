@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebListener;
  *  Request 监听者初始化，监听Request的创建和销毁
  */
 @WebListener
+// web Listener 定义一个Listener 监听者,初始化的时候
 public class FoodListener implements ServletRequestListener {
 
     private static Logger logger = LoggerFactory.getLogger(FoodListener.class);
