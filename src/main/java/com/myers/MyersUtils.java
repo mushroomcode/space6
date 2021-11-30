@@ -4,10 +4,6 @@ import com.DiffBean.Node;
 import com.DiffBean.NodeParam;
 import com.DiffBean.SnakeParam;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
-
 public class MyersUtils<T> {
 
     public Node findAllWays(String strA, String strB, int N, int M) {
