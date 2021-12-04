@@ -4,6 +4,7 @@ import com.DiffBean.HunterCarParam;
 import com.Servicers.HunterFoodServicer;
 import com.transactions.HunterTrans;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,12 @@ public class HunterController {
 
     @Autowired
     private HunterFoodServicer servicer;
+
+    @Autowired
+    private ApplicationContext context;
+
+    @Autowired
+    private HunterCarParam param;
 
     //
     @RequestMapping("/hello")
@@ -52,9 +59,9 @@ public class HunterController {
     public List<HunterCarParam> HunterTreeNode() {
         List<HunterCarParam> retList = new ArrayList<>();
         HunterCarParam hunterCarParam = new HunterCarParam();
-        hunterCarParam.setCarBranch("Honda");
-        hunterCarParam.setCarName("civic 11th");
-        hunterCarParam.setCarType("Sedan");
+//        hunterCarParam.setCarBranch("Honda");
+//        hunterCarParam.setCarName("civic 11th");
+//        hunterCarParam.setCarType("Sedan");
         retList.add(hunterCarParam);
         return retList;
     }
@@ -65,6 +72,17 @@ public class HunterController {
                              @RequestParam("energy") String energy) {
         servicer.addFood(foodName, energy);
         return "获取:" + foodName;
+    }
+
+    @GetMapping(value = "/hunterCar")
+    @ResponseBody
+    public String hunterCars(HttpServletRequest request, HttpServletResponse response) {
+//        servicer.addFood(foodName, energy);
+//        return "获取:" + foodName;
+//        AnnotationConfigApplicationContext configApplicationContext;
+
+//        HunterCarParam hunterCarParam = context.getBean(HunterCarParam.class);
+        return param.getCarType();
     }
 
 }
