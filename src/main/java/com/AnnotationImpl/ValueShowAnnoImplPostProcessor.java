@@ -20,8 +20,11 @@ public class ValueShowAnnoImplPostProcessor implements BeanDefinitionRegistryPos
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry beanDefinitionRegistry) throws BeansException {
         ClassPathScanningCandidateComponentProvider classPathScanningCandidateComponentProvider = new ClassPathScanningCandidateComponentProvider(false);
         classPathScanningCandidateComponentProvider.addIncludeFilter(new AnnotationTypeFilter(ValueShowAnno.class));
-        Set<BeanDefinition> set =  classPathScanningCandidateComponentProvider.findCandidateComponents("com.Annotation");
+        // 这个类下的路径是使用的 ClassLoader 加载的路径信息，
+        Set<BeanDefinition> set =  classPathScanningCandidateComponentProvider.findCandidateComponents("com.DiffBean");
         for(BeanDefinition i : set) {
+//            i.getFactoryBeanName();
+            // 注册Bean
             beanDefinitionRegistry.registerBeanDefinition(i.getBeanClassName(), i);
         }
     }
