@@ -2,16 +2,26 @@ package com.DiffBean;
 
 public abstract class Node {
 
-    private Integer x;
+    private Integer k;
 
-    private Integer y;
+    private Integer x;
 
     private Node prev;
 
-    public Node (int x, int y, Node prev) {
+    public Node(int k, int x, Node prev) {
+        this.k = k;
         this.x = x;
-        this.y = y;
         this.prev = prev;
     }
+
+    public Integer getK() {
+        return k;
+    }
+
+    public Integer getX() {
+        return x;
+    }
+
+    public abstract boolean isSnake();
 
 }
